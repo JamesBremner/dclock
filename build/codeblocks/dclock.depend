@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1575493336 source:c:\users\james\code\dclock\src\main.cpp
+	<iostream>
+	"wex.h"
+
+1574897630 c:\users\james\code\windex\include\wex.h
+	<iostream>
+	<thread>
+	<vector>
+	<map>
+	<functional>
+	<algorithm>
+	<cmath>
+	<windows.h>
+	<CommCtrl.h>
+
