@@ -126,70 +126,107 @@ void segment::set( int k )
     }
 }
 
-    void number::draw( PAINTSTRUCT& ps )
+void number::draw( PAINTSTRUCT& ps )
+{
+    shapes S( ps );
+    S.color( 0x0ab4ff );
+    S.bgcolor( 0 );
+    S.fill();
+    //S.text(to_string(myNumber),{1,1,20,30});
+    segment::scale = 10;
+    switch( myNumber )
     {
-        shapes S( ps );
-        S.color( 0x0ab4ff );
-        S.bgcolor( 0 );
-        S.fill();
-        //S.text(to_string(myNumber),{1,1,20,30});
-        segment::scale = 10;
-        switch( myNumber )
-        {
-        case 0:
-            S.rectangle( mySegment[0].display() );
-            S.rectangle( mySegment[1].display() );
-            S.rectangle( mySegment[2].display() );
-            S.rectangle( mySegment[3].display() );
-            S.rectangle( mySegment[4].display() );
-            S.rectangle( mySegment[5].display() );
-            S.rectangle( mySegment[6].display() );
-            S.rectangle( mySegment[7].display() );
-            break;
-        case 1:
-            S.rectangle( mySegment[0].display() );
-            S.rectangle( mySegment[8].display() );
-            break;
-        case 2:
-            S.rectangle( mySegment[0].display() );
-            S.rectangle( mySegment[1].display() );
-            S.rectangle( mySegment[2].display() );
-            S.rectangle( mySegment[4].display() );
-            S.rectangle( mySegment[5].display() );
-            S.rectangle( mySegment[6].display() );
-            S.rectangle( mySegment[10].display() );
-            break;
-        case 3:
-            S.rectangle( mySegment[0].display() );
-            S.rectangle( mySegment[1].display() );
-            S.rectangle( mySegment[2].display() );
-            S.rectangle( mySegment[3].display() );
-            S.rectangle( mySegment[4].display() );
-            S.rectangle( mySegment[5].display() );
-            S.rectangle( mySegment[10].display() );
-            break;
-        case 4:
-            S.rectangle( mySegment[2].display() );
-            S.rectangle( mySegment[3].display() );
-            S.rectangle( mySegment[7].display() );
-            S.rectangle( mySegment[10].display() );
-            break;
-        case 5:
-            S.rectangle( mySegment[0].display() );
-            S.rectangle( mySegment[1].display() );
-            S.rectangle( mySegment[3].display() );
-            S.rectangle( mySegment[4].display() );
-            S.rectangle( mySegment[5].display() );
-            S.rectangle( mySegment[7].display() );
-            S.rectangle( mySegment[10].display() );
-            break;
-        }
+    case 0:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[6].display() );
+        S.rectangle( mySegment[7].display() );
+        break;
+    case 1:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[8].display() );
+        break;
+    case 2:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[6].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
+    case 3:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
+    case 4:
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[7].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
+    case 5:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[7].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
+    case 6:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[6].display() );
+        S.rectangle( mySegment[7].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
+    case 7:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[3].display() );
+        break;
+    case 8:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[6].display() );
+        S.rectangle( mySegment[7].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
+    case 9:
+        S.rectangle( mySegment[0].display() );
+        S.rectangle( mySegment[1].display() );
+        S.rectangle( mySegment[2].display() );
+        S.rectangle( mySegment[3].display() );
+        S.rectangle( mySegment[4].display() );
+        S.rectangle( mySegment[5].display() );
+        S.rectangle( mySegment[7].display() );
+        S.rectangle( mySegment[10].display() );
+        break;
     }
+}
 
 int main()
 {
     gui& form = maker::make();
-    form.move({ 50,50,600,400});
+    form.move({ 50,50,1000,400});
     form.text("Digital Clock");
     form.bgcolor( 0x000000 );
 
@@ -211,6 +248,18 @@ int main()
     number& secs5 = maker::make<number>( form );
     secs5.move( { 505, 5, 100, 200});
     secs5.set( 5 );
+    number& secs6 = maker::make<number>( form );
+    secs6.move( { 605, 5, 100, 200});
+    secs6.set( 6 );
+    number& secs7 = maker::make<number>( form );
+    secs7.move( { 705, 5, 100, 200});
+    secs7.set( 7 );
+    number& secs8 = maker::make<number>( form );
+    secs8.move( { 805, 5, 100, 200});
+    secs8.set( 8 );
+        number& secs9 = maker::make<number>( form );
+    secs9.move( { 905, 5, 100, 200});
+    secs9.set( 9 );
     form.show();
     form.run();
     return 0;
