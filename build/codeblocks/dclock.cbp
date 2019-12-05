@@ -31,12 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="../windex/include" />
+			<Add directory="../../../windex/include" />
 		</Compiler>
 		<Linker>
 			<Add library="gdi32" />
 		</Linker>
-		<Unit filename="main.cpp" />
+		<Unit filename="../../src/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
