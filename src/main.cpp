@@ -38,6 +38,7 @@ public:
         scale = sw;
         if( sh < sw )
             scale = sh;
+        //std::cout << "segment resize " << w <<" " << h << "\n";
     }
 
 
@@ -276,6 +277,24 @@ int main()
     number& secs9 = maker::make<number>( form );
     secs9.move( { 905, 5, 100, 200});
     secs9.set( 9 );
+
+    form.events().resize( [&](int w, int h)
+    {
+        w /= 11;
+        secs0.move( { 5, 5, w, h});
+        secs1.move( { w+5, 5, w, h});
+        secs2.move( { 2*w+5, 5, w, h});
+        secs3.move( { 3*w+5, 5, w, h});
+        secs4.move( { 4*w+5, 5, w, h});
+        secs5.move( { 5*w+5, 5, w, h});
+        secs6.move( { 6*w+5, 5, w, h});
+        secs7.move( { 7*w+5, 5, w, h});
+        secs8.move( { 8*w+5, 5, w, h});
+        secs9.move( { 9*w+5, 5, w, h});
+
+        form.update();
+    });
+
     form.show();
     form.run();
     return 0;
