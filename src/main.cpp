@@ -25,10 +25,26 @@ public:
         return r;
     }
 
-    static int scale;
+    /** Adjust scale so entire digit will fit
+        @param[in] w max width of entire digit
+        @param[in] h max height of entire digit
+
+        Do this for one segment, it will be applied to all segments
+    */
+    void resize( int w, int h )
+    {
+        int sw = w / 9;
+        int sh = h / 13;
+        scale = sw;
+        if( sh < sw )
+            scale = sh;
+    }
+
+
 
 private:
     vector<int> myR;
+    static int scale;
 };
 
 class number : public panel
@@ -132,8 +148,8 @@ void number::draw( PAINTSTRUCT& ps )
     S.color( 0x0ab4ff );
     S.bgcolor( 0 );
     S.fill();
-    //S.text(to_string(myNumber),{1,1,20,30});
-    segment::scale = 10;
+    mySegment[0].resize( ps.rcPaint.right-ps.rcPaint.left,
+                         ps.rcPaint.bottom-ps.rcPaint.top );
     switch( myNumber )
     {
     case 0:
@@ -257,7 +273,7 @@ int main()
     number& secs8 = maker::make<number>( form );
     secs8.move( { 805, 5, 100, 200});
     secs8.set( 8 );
-        number& secs9 = maker::make<number>( form );
+    number& secs9 = maker::make<number>( form );
     secs9.move( { 905, 5, 100, 200});
     secs9.set( 9 );
     form.show();
